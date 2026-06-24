@@ -1,8 +1,8 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Seguidor, SeguidorDocument } from './schemas/seguidor.schema';
+import { Seguidor, SeguidorDocument } from './schema/seguidor.schema';
 import { Model } from 'mongoose';
-import { ResponseHelper } from 'src/common/helpers/response.helper';
+import { ResponseHelper } from 'src/common/helpers/response.helpers';
 import { CreateSeguidorDto } from './dto/create-seguidor.dto';
 import { UpdateSeguidorDto } from './dto/update-seguidor.dto';
 import { SearchSeguidorDto } from './dto/search-seguidor.dto';

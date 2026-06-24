@@ -2,7 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Reaccion, ReaccionDocument } from './schemas/reaccion.schema';
 import { Model } from 'mongoose';
-import { ResponseHelper } from 'src/common/helpers/response.helper';
+import { ResponseHelper } from 'src/common/helpers/response.helpers';
 import { CreateReaccionDto } from './dto/create-reaccion.dto';
 import { UpdateReaccionDto } from './dto/update-reaccion.dto';
 import { SearchReaccionDto } from './dto/search-reaccion.dto';

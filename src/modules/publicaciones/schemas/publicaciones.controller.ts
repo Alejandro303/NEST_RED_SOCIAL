@@ -1,9 +1,9 @@
 import { Controller, Get, Post, Body, Param, Put, Patch, Delete, Query } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { PublicacionesService } from './publicaciones.service';
-import { CreatePublicacionDto } from './dto/create-publicacion.dto';
-import { UpdatePublicacionDto } from './dto/update-publicacion.dto';
-import { SearchPublicacionDto } from './dto/search-publicacion.dto';
+import { CreatePublicacionDto } from '../dto/create-publicacion.dto';
+import { UpdatePublicacionDto } from '../dto/update-publicacion.dto';
+import { SearchPublicacionDto } from '../dto/search-publicacion.dto';
 
 @ApiTags('Publicaciones')
 @Controller('publicaciones')

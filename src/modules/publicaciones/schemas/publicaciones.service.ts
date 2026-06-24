@@ -1,11 +1,11 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Publicacion, PublicacionDocument } from './schemas/publicacion.schema';
+import { Publicacion, PublicacionDocument } from './publicacion.schema';
 import { Model } from 'mongoose';
-import { CreatePublicacionDto } from './dto/create-publicacion.dto';
-import { UpdatePublicacionDto } from './dto/update-publicacion.dto';
-import { SearchPublicacionDto } from './dto/search-publicacion.dto';
-import { ResponseHelper } from 'src/common/helpers/response.helper';
+import { CreatePublicacionDto } from '../dto/create-publicacion.dto';
+import { UpdatePublicacionDto } from '../dto/update-publicacion.dto';
+import { SearchPublicacionDto } from '../dto/search-publicacion.dto';
+import { ResponseHelper } from '../../../common/helpers/response.helpers';
 
 @Injectable()
 export class PublicacionesService {
@@ -105,7 +105,7 @@ export class PublicacionesService {
     /**
      * Actualización parcial
      */
-    async partialUpdate(id: string, dto: Partial<Publicacion>) {
+    async partialUpdate(id: string, dto: UpdatePublicacionDto) {
         const publicacion = await this.publicacionModel.findById(id);
 
         if (!publicacion) {

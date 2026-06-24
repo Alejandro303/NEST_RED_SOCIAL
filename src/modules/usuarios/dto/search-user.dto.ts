@@ -1,13 +1,12 @@
-import {IsOptional, } from 'class-validator';
+import { IsOptional } from 'class-validator';
 
 export class SearchUserDto {
     @IsOptional()
     nombre?: string;
 
+    @IsOptional()
+    page?: number;
 
     @IsOptional()
-    page?: string;
-
-    @IsOptional()
-    limit?: string;
-} 
+    limit?: number;
+}

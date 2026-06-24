@@ -10,4 +10,4 @@ export class SearchUserDto {
 
     @IsOptional()
     limit?: string;
-}
+} 

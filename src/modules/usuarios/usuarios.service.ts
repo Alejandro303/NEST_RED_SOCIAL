@@ -4,9 +4,10 @@ import { User, UserDocument } from "./schemas/user.schema";
 import { Model } from 'mongoose';
 import { CreateUserDto } from "./dto/create-user.dto";
 import { SearchUserDto } from "./dto/search-user.dto";
-import { ResponseHelper } from '../../common/helpers/response.helpers';
+import { ResponseHelper } from 'src/common/helpers/response.helpers';
 import * as bcrypt from 'bcrypt';
 import { UpdateUserDto } from "./dto/update-user.dto";
+import { dot } from "node:test/reporters";
 
 @Injectable()
 export class UsuariosService {
@@ -51,8 +52,8 @@ export class UsuariosService {
         const page = Number(search.page) || 1;
         const limit = Number(search.limit) || 10;
         
-        // consulta
-        const data = await this.userModel.find(filter).populate('rol_id').skip((page - 1) * limit).limit(limit);
+        // CORREGIDO: Se usa 'role' para que coincida con tu Schema
+        const data = await this.userModel.find(filter).populate('role').skip((page - 1) * limit).limit(limit);
         
         // Contador de documentos = contador de usuarios 
         const total = await this.userModel.countDocuments(filter);
@@ -64,7 +65,8 @@ export class UsuariosService {
      * consulta por id usuario
      */
     async findOne(id: string) {
-        const user = await this.userModel.findById(id).populate('rol_id');
+
+        const user = await this.userModel.findById(id).populate('role');
         if (!user) {
             throw new BadRequestException('Usuario no encontrado');
         }
@@ -81,7 +83,7 @@ export class UsuariosService {
             throw new NotFoundException('No se encontro el Usuario');
         }
 
-        if(dto.password){
+        if (dto.password) {
             dto.password = await bcrypt.hash(dto.password, 10);
         }
 

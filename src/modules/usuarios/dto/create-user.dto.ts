@@ -1,5 +1,5 @@
-import {IsEmail, IsNotEmpty, IsString, MinLength, MaxLength} from 'class-validator';
-import {ApiProperty} from '@nestjs/swagger';
+import { IsEmail, IsNotEmpty, IsString , MinLength, MaxLength} from 'class-validator'
+import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateUserDto {
     @ApiProperty({
@@ -9,33 +9,26 @@ export class CreateUserDto {
     })
     @IsString()
     @IsNotEmpty()
-    @MinLength(3, {message: 'El nombre debe tener al menos 3 caracteres',})
-    @MaxLength(50, {message: 'El nombre no debe exceder los 50 caracteres',})
+    @MinLength(3, { message: 'El nombre debe tener al menos 3 caracteres' })
+    @MaxLength(50, { message: 'El nombre no puede exceder los 50 caracteres' })
     nombre!: string;
-
 
     @ApiProperty({
         description: 'Correo electrónico del usuario',
-        maxLength: 100,
     })
     @IsEmail()
     @IsNotEmpty()
-    @MaxLength(100, {message: 'El correo no debe exceder los 100 caracteres',})
+    @MaxLength(100, { message: 'El correo no puede exceder los 100 caracteres' })
     correo!: string;
-
 
     @ApiProperty({
         description: 'Contraseña del usuario',
-        minLength: 8,
-        maxLength: 20,
     })
     @IsString()
     @IsNotEmpty()
-    @MinLength(8, {message: 'La contraseña debe tener al menos 8 caracteres',})
-    @MaxLength(20, {message: 'La contraseña no debe exceder los 20 caracteres',})
-    @IsNotEmpty()
+    @MinLength(8, { message: 'La contraseña debe tener al menos 8 caracteres' })
+    @MaxLength(20, { message: 'La contraseña no puede exceder los 20 caracteres' })
     password!: string;
-
 
     @ApiProperty({
         description: 'ID del rol del usuario',
@@ -43,6 +36,4 @@ export class CreateUserDto {
     @IsString()
     @IsNotEmpty()
     rol_id!: string;
-
-
 }

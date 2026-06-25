@@ -6,7 +6,7 @@ import { SearchUserDto } from "./dto/search-user.dto";
 import { UpdateUserDto } from "./dto/update-user.dto";
 
 @ApiTags('Usuarios')
-@Controller('usuarios')
+@Controller('Usuarios')
 export class UsuariosController {
     constructor(
         private readonly service: UsuariosService,

@@ -1,8 +1,11 @@
 import { IsOptional } from 'class-validator';
 
-export class SearchUserDto {
+export class SearchSeguidorDto {
     @IsOptional()
-    nombre?: string;
+    seguidor_id?: string;
+
+    @IsOptional()
+    seguido_id?: string;
 
     @IsOptional()
     page?: number;
